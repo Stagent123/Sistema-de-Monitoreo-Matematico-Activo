@@ -1,0 +1,39 @@
+Usuarios (Personas que interactuan en la clase Profesor y Alumnos)
+ID
+DNI Unico
+Nombre
+Apellido
+Contraseña
+Email
+Rol
+
+Clase (Espacio donde se publican las actividades del dia)
+
+ID AutoIncremental
+
+Nombre
+Clave
+Profesor Propietario
+Actividades
+
+Actividad (Texto y consigna de la actividad)
+
+id
+Texto de la Actividad
+Consignas
+Notas
+
+NotasAlumno
+
+id
+Id alumno
+id Consigna
+Valor Nota
+
+Pizarra (Datos sobre las Lineas o Formulas de la Pizarra del alumno)
+
+id
+id Alumno
+id actividad 
+Ubicacion 
+COntenido
