@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 
 import com.example.Springboot.model.Usuario;
 import com.example.Springboot.service.UsuarioService;
-import com.example.Springboot.service.JwtUtil; // <-- Importamos tu nueva clase utilitaria
+import com.example.Springboot.config.JwtUtil; // <-- Importamos tu nueva clase utilitaria
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -27,6 +28,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioservice;
 
+    @Autowired
     private JwtUtil jwtUtil;
 
     @DeleteMapping("/borrar")
@@ -62,12 +64,14 @@ public class UsuarioController {
                 
                 // 2. Estructuramos la respuesta para enviarle tanto el token como datos básicos a Angular
                 Map<String, Object> response = new HashMap<>();
-                response.add("token", token);
-                response.add("email", usuario.getEmail());
-                response.add("rol", usuario.getRol());
-                response.add("nombre", usuario.getNombre());
-
+                response.put("token", token);
+                response.put("email", usuario.getEmail());
+                response.put("rol", usuario.getRol());
+                response.put("nombre", usuario.getNombre());
                 return ResponseEntity.ok(response);
+            }
+            else{
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Contraseña incorrecta");
             }
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
@@ -84,4 +88,15 @@ public class UsuarioController {
         }
     }
     
+    @GetMapping("/todos")
+    public ResponseEntity<?> BuscarTodos() {
+        try {
+            List<Usuario> todos = usuarioservice.BuscarTodos();
+            return ResponseEntity.ok(todos);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body("error: " + e.getMessage());
+        }
+    }
+    
+
 }
