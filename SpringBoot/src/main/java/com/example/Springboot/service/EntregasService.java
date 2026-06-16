@@ -15,7 +15,7 @@ public class EntregasService {
     
     public Entregas BuscarPorId(Long Id){
         return entregasrepository.findById(Id)
-        .orElseThrow(() -> new RuntimeException("No se encontro ninguna entregas con ese id: "+ Id))
+        .orElseThrow(() -> new RuntimeException("No se encontro ninguna entregas con ese id: "+ Id));
     }
 
     public List<Entregas> BuscarTodos(){

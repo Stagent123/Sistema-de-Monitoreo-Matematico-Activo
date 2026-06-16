@@ -1,5 +1,5 @@
-package com.example.springboot.controller;
-import com.example.Springboot.model.PizarraEvento;
+package com.example.Springboot.controller;
+import com.example.Springboot.model.PizarraEventos;
 import com.example.Springboot.service.PizarraEventoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +17,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/pizarraevento")
 @CrossOrigin(origins = "http://localhost:4200")
-public class Pizarraontroller {
+public class PizarraEventoController {
     @Autowired
     private PizarraEventoService pizarraeventoservice;
 
     @DeleteMapping("/borrar")
-    public ResponseEntity<?> borrar(@RequestBody PizarraEvento pizarraevento){
+    public ResponseEntity<?> borrar(@RequestBody PizarraEventos pizarraevento){
         try{
             pizarraeventoservice.delete(pizarraevento);
             return ResponseEntity.ok("Evento de Pizarra Borrada Correctamente");
@@ -32,9 +32,9 @@ public class Pizarraontroller {
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<?> registrar(@RequestBody PizarraEvento pizarraevento) {
+    public ResponseEntity<?> registrar(@RequestBody PizarraEventos pizarraevento) {
         try{
-            PizarraEvento nuevo = pizarraeventoservice.guardarPizarra(pizarraevento);
+            PizarraEventos nuevo = pizarraeventoservice.guardarPizarra(pizarraevento);
             return ResponseEntity.ok(nuevo);
         } catch(RuntimeException e){
             return ResponseEntity.badRequest().body("Error" + e.getMessage());
@@ -44,7 +44,7 @@ public class Pizarraontroller {
     @GetMapping("/buscar")
     public ResponseEntity<?> BuscarPorId(@RequestParam Long id) {
         try{
-            PizarraEnento busqueda = pizarraeventoservice.BuscarPorId(id);
+            PizarraEventos busqueda = pizarraeventoservice.BuscarPorId(id);
             return ResponseEntity.ok(busqueda);
         } catch (RuntimeException e){
             return ResponseEntity.badRequest().body("Error" + e.getMessage());
@@ -54,7 +54,7 @@ public class Pizarraontroller {
     @GetMapping("/todos")
     public ResponseEntity<?> BuscarTodos() {
         try {
-            List<PizarraEvento> todos = pizarraeventoservice.BuscarTodos();
+            List<PizarraEventos> todos = pizarraeventoservice.BuscarTodos();
             return ResponseEntity.ok(todos);
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body("error: " + e.getMessage());

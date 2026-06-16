@@ -1,6 +1,5 @@
 package com.example.Springboot.controller;
 import com.example.Springboot.model.Entregas;
-import com.example.Springboot.model.Inscripcion;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -45,7 +44,7 @@ public class EntregasController {
     @GetMapping("/buscar")
     public ResponseEntity<?> BuscarPorId(@RequestParam Long id) {
         try{
-            Inscripcion inscripcion = entregasService.BuscarPorId(id);
+            Entregas inscripcion = entregasService.BuscarPorId(id);
             return ResponseEntity.ok(inscripcion);
         } catch (RuntimeException e){
             return ResponseEntity.badRequest().body("Error" + e.getMessage());
@@ -55,7 +54,7 @@ public class EntregasController {
     @GetMapping("/todos")
     public ResponseEntity<?> BuscarTodos() {
         try {
-            List<Inscripcion> todos = entregasService.BuscarTodos();
+            List<Entregas> todos = entregasService.BuscarTodos();
             return ResponseEntity.ok(todos);
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body("error: " + e.getMessage());

@@ -11,18 +11,18 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-@table(name = "PizarraEventos")
+@Table(name = "PizarraEventos")
 public class PizarraEventos{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTIFY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long IdPizarraEventos;
 
     @ManyToOne
-    private Pizarra pizarra
+    private Pizarra pizarra;
 
     private String tipo;
 
     private Data JSON;
 
-    private Local_Date Fecha_Creacion;
+    private LocalDate Fecha_Creacion;
 }

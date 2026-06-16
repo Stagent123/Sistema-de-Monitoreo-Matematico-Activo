@@ -1,4 +1,4 @@
-package com.example.springboot.controller;
+package com.example.Springboot.controller;
 import com.example.Springboot.model.Pizarra;
 import com.example.Springboot.service.PizarraService;
 
@@ -44,7 +44,7 @@ public class Pizarraontroller {
     @GetMapping("/buscar")
     public ResponseEntity<?> BuscarPorId(@RequestParam Long id) {
         try{
-            pizarra busqueda = pizarraservice.BuscarPorId(id);
+            Pizarra busqueda = pizarraservice.BuscarPorId(id);
             return ResponseEntity.ok(busqueda);
         } catch (RuntimeException e){
             return ResponseEntity.badRequest().body("Error" + e.getMessage());
