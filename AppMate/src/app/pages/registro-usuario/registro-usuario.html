@@ -1,0 +1,32 @@
+<div class="tarjeta-enlaces">
+    <form (ngSubmit)="onRegister()" class="form-container" >
+            <div>
+                <label for="email">Email: </label>
+                <input
+                id="email"
+                type="email"
+                name="email"
+                [(ngModel)]="datosFormulario.email"
+                required
+                placeholder="ejemplo@correo.com">
+            </div>
+            <div>
+                <label for="nombre">Nombre: </label>
+                <input
+                id="nombre"
+                type="text"
+                name="nombre"
+                [(ngModel)]="datosFormulario.nombre"
+                required>
+            </div>
+            <div>
+                <label for="password"> Contrasaña: </label>
+                <input
+                id="password"
+                type="password"
+                name="password"
+                [(ngModel)]="datosFormulario.password"
+                required>
+            </div>
+    </form>
+</div>

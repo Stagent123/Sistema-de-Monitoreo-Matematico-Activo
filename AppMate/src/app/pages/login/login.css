@@ -1,0 +1,58 @@
+<style>
+        /* Fondo de la página para que resalte el recuadro blanco */
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* El recuadro blanco (Contenedor) */
+        .tarjeta-enlaces {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px; /* Bordes redondeados */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            width: 320px;
+            text-align: center;
+        }
+
+        .tarjeta-enlaces h2 {
+            margin-top: 0;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        /* Contenedor de los botones para ordenarlos en vertical */
+        .grupo-botones {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Espacio entre botones */
+        }
+
+        /* Estilo de los botones (que en realidad son enlaces <a>) */
+        .boton-enlace {
+            display: block;
+            text-decoration: none; /* Quita el subrayado típico de los enlaces */
+            background-color: #007bff; /* Color azul */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Efecto cuando pasas el mouse por encima (Hover) */
+        .boton-enlace:hover {
+            background-color: #0056b3; /* Azul más oscuro */
+            transform: translateY(-2px); /* Se eleva un poquito */
+        }
+
+        /* Efecto cuando haces clic */
+        .boton-enlace:active {
+            transform: translateY(0);
+        }
+    </style>
