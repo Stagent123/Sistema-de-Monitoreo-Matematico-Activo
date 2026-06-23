@@ -27,4 +27,24 @@ export class UsuarioService {
     borrar(usuario: any): Observable<any> {
         return this.http.delete(`${this.API_URL}/borrar` , {body:usuario});
     }
+
+    buscaPorEmail(email: string): Observable<any> {
+        return this.http.get<any>(`${this.API_URL}/buscar?email=${email}`);
+    }
+
+    desencriptarToken(): string | null {
+        const token = localStorage.getItem('token');
+        if(!token) return null;
+
+        try{
+            const payloadBase64 = token.split('.')[1];
+            const payloadDecodificado = atob(payloadBase64);
+            const Datostoken = JSON.parse(payloadDecodificado);
+            return Datostoken.sub;
+        } catch(error) {
+            console.error('Error al decodificar el token' , error ) ;
+            return null;
+        }
+    }
+
 }

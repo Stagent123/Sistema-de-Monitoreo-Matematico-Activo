@@ -1,0 +1,33 @@
+<div class="listado-container">
+    <h2>Sistema de Monitoreo - Listado de Usuarios</h2>
+    <p *ngIf="mensajeError" style="color:red" >{{  mensajeError  }}</p>
+
+    <table border="1" *ngIf="listausuarios.length > 0">
+        <thead>
+            <tr>
+                <th> ID </th>
+                <th> Nombre </th>
+                <th> Email </th>
+                <th> Rol </th>
+                <th> Modificar</th>
+                <th> Borrar </th>
+            </tr>   
+        </thead>
+        <tbody>
+            @for (usuario of listausuarios; track usuario.email  ){
+                <tr>
+                    <td> {{ usuario.Id }}</td>
+                    <td> {{ usuario.Nombre }}</td>
+                    <td> {{ usuario.Email }}</td>
+                    <td> {{ usuario.Rol }}</td>
+
+                    <button routerLink="[`/registro`, usuario.id]">Editar</button>
+                    <td> <button (click)="Borrar(usuario.id)">Eliminar</button>  </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p *ngIf="listausuarios.length === 0 && !mensajeError"> No hay usuarios registrados </p>
+
+</div>

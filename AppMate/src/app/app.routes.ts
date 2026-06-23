@@ -1,9 +1,25 @@
 import { Routes } from '@angular/router';
-import { Login } from './pages/login/login';
+//import pages...
 import { MenuPrincipal } from './pages/menu-principal/menu-principal';
 
+//User pages / paginas del Usuario 
+import { RegistroUsuario } from './pages/Usuarios/registro/registro-usuario';
+import { ListadoUsuario } from './pages/Usuarios/listado/listado-usuario';
+import { Login } from './pages/Usuarios/login/login';
+
+
 export const routes: Routes = [
-    { path: '',redirectTo:'login',pathMatch:'full'},
-    { path: 'login', component: Login },
-    { path: 'home', component: MenuPrincipal}
+    //Ejemplo de como añadir una pagina al router...
+    { path: '', component: MenuPrincipal},
+    
+    //Ejemplo como añadir una pagina que recibe un dato al router
+    // enrutamiento paginas relacionadas con el Usuario
+    { path: 'usuario/login', component: Login },
+    { path: 'usuario/registro/:Id', component: RegistroUsuario },
+    { path: 'usuario/registro' , component: RegistroUsuario },
+    { path: 'usuario/listado', component: ListadoUsuario },
+
+    //
+
+    
 ];

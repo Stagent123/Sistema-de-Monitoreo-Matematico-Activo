@@ -14,6 +14,8 @@ import com.example.Springboot.service.MateriaService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import java.util.List;
 
 
@@ -24,16 +26,12 @@ public class MateriaController {
 
     @Autowired
     private MateriaService materiaservice;
-    
-    @DeleteMapping("/borrar")
-    public ResponseEntity<?> borrar(@RequestParam Materias materia){
-        try{
-            materiaservice.delete(materia);
-            return ResponseEntity.ok("Materia borrada con exito");
-        }catch(RuntimeException e){
-            return ResponseEntity.badRequest().body("Error" + e.getMessage());
-        }  
-    } 
+    //Ejemplo de DeleteMapping en base a IDs...
+    @DeleteMapping("/borrar/{id}")
+    public ResponseEntity<?> borrarMateria(@PathVariable Long id) {
+        materiaservice.eliminar(id);
+        return ResponseEntity.ok().build();
+    }
 
     @PostMapping("/registrar")
     public ResponseEntity<?> registrar (@RequestBody Materias materias) {

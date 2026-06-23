@@ -1,5 +1,6 @@
 package com.example.Springboot.controller;
 
+import com.example.Springboot.service.MateriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -25,21 +27,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 @CrossOrigin(origins = "http://localhost:4200")
 public class UsuarioController {
 
+    private final service.MateriaService materiaService;
+
     @Autowired
     private UsuarioService usuarioservice;
 
     @Autowired
     private JwtUtil jwtUtil;
 
-    @DeleteMapping("/borrar")
-    public ResponseEntity<?> borrar(@RequestBody Usuario usuario) {
-        try {
-            // Modificado para que use el método delete del servicio
-            usuarioservice.delete(usuario);
-            return ResponseEntity.ok("Usuario borrado exitosamente"); // Corregido: añadidos puntos y coma ;
-        } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body("Error en el Borrado: " + e.getMessage());
-        }
+    @DeleteMapping("/borrar/{id}")
+    public ResponseEntity<?> borrarMateria(@PathVariable Long id){
+        usuarioservice.eliminar(id);
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/registrar")

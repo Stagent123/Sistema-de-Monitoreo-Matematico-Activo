@@ -26,7 +26,7 @@ public class UsuarioService {
     }
 
     // Agregamos este método que le faltaba a tu servicio para que el controlador pueda borrar
-    public void delete(Usuario usuario) {
-        usuariorepository.delete(usuario);
+    public void eliminar(Long id) {
+        usuariorepository.deleteById(id);
     }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from "@angular/forms";
-import { UsuarioService } from '../../services/usuario.service';
+import { UsuarioService } from '../../../services/usuario.service';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -12,12 +12,39 @@ import { UsuarioService } from '../../services/usuario.service';
 export class RegistroUsuario {
   
   datosFormulario = {
+    id: '',
     email: '',
     password: '',
-    nombre: ''
+    nombre: '',
+    rol: ''
   }
 
+  esadmin: boolean = false;
+
   constructor(private usuarioService: UsuarioService) {}
+
+  ngOnInit():void {
+    this.buscarusuario();
+    this.esAdmin();
+  }
+  buscarusuario() {
+    this.usuarioService.buscaPorID //Crear un metodo Buscar Id en el Backend
+  }
+
+
+  esAdmin() {
+    const emailUsuario = this.usuarioService.desencriptarToken();
+
+    if(emailUsuario) {
+      this.usuarioService.buscaPorEmail(emailUsuario).subscribe({
+        next: (usuario) => {
+          this.esadmin = (usuario.rol === 'ADMIN' );
+        }
+      })
+    }
+
+
+    }
 
   onRegister() {
     this.usuarioService.registrar(this.datosFormulario).subscribe({
@@ -28,5 +55,6 @@ export class RegistroUsuario {
       }
     })
   }
+  
 
 }

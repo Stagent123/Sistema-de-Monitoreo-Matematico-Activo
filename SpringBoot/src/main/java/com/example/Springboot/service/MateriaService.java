@@ -26,7 +26,7 @@ public class MateriaService {
     }
 
     // Agregamos este método que le faltaba a tu servicio para que el controlador pueda borrar
-    public void delete(Materias materia) {
-        materiarepository.delete(materia);
+    public void eliminar(Long id) {
+        materiarepository.deleteById(id);
     }
 }
