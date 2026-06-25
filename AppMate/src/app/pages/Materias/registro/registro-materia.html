@@ -1,1 +1,36 @@
-<p>registro works!</p>
+<div class="tarjeta-enlaces">
+    <form (ngSubmit)="Registro()" class="form-container">
+        <div>
+            <label for="id">Id: </label>
+            <input
+            id="id"
+            type="number"
+            name="id"
+            [(ngModel)]="DatosFormulario.id"
+            readonly>
+        </div>
+        <div>
+            <label for="nombre">Nombre de la Materia: </label>
+            <input
+            id="Materia"
+            type="string"
+            name="Materia"
+            [(ngModel)]="DatosFormulario.nombre"
+            required
+            >
+        </div>
+        <div>
+            <label for="Codigo de acceso" >Codigo de acceso: </label>
+            <input
+            id="CodigoAcceso"
+            type="string"
+            name="CodigoAcceso"
+            [(ngModel)]="DatosFormulario.CodigoAcceso"
+            required>
+        </div> 
+        <div>
+            <button [formAction]="Registro"> Enviar </button>
+        </div>
+
+    </form>
+</div>

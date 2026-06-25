@@ -7,8 +7,8 @@ import { MateriaService } from '../../../services/materia.service';
   selector: 'app-registro',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './registro.html',
-  styleUrl: './registro.css',
+  templateUrl: './registro-materia.html',
+  styleUrl: './registro-materia.css',
 })
 export class RegistroMateria {
 

@@ -1,1 +1,28 @@
-<p>listado works!</p>
+<div class="listado-container">
+    <p *ngif="mensajeError" style="color: red;"> {{mensajeError}} </p>
+
+    <table border="1" *ngIf="listamaterias.length > 0">
+        <thead>
+            <tr>
+                <th> ID Materia  </th>
+                <th> Nombres  </th>
+                <th> Inscriptos  </th>
+                <th> Actividades </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (usuario of listamaterias; track usuario.email) {
+                <tr>
+                    <td> {{ usuario.Id }} </td>
+                    <td> {{ usuario.Nombre }}</td>
+                    <td> {{ usuario.inscriptos }}</td>
+                    <td> {{ usuario.actividades}} </td>
+                    <td> <button routerLink="[`/registro, usuario.Id]">Editar</button> </td>
+                    <td> <button (click)="Borrar(usuario.id)"Eliminar></button> </td>                    
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p *ngIf="listamaterias.length === 0 &&  !mensajeError"> No hay Materias registradas</p>
+</div>
