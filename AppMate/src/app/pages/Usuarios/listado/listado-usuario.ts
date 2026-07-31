@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { email } from '@angular/forms/signals';
 import { UsuarioService } from '../../../services/usuario.service';
-import { NgIf } from "../../../../../node_modules/@angular/common/types/_common_module-chunk";
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-listado-usuario',

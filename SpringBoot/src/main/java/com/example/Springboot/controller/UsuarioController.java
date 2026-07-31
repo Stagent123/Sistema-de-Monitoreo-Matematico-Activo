@@ -26,9 +26,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/api/usuarios")
 @CrossOrigin(origins = "http://localhost:4200")
 public class UsuarioController {
-
-    private final service.MateriaService materiaService;
-
     @Autowired
     private UsuarioService usuarioservice;
 
@@ -96,6 +93,17 @@ public class UsuarioController {
             return ResponseEntity.badRequest().body("error: " + e.getMessage());
         }
     }
+
+    @GetMapping("/buscarID")
+    public ResponseEntity<?> BuscarPorId(@RequestParam Long number) {
+        try{
+            Usuario usuario = usuarioservice.BuscarPorID(number);
+            return ResponseEntity.ok(usuario);
+        } catch(RuntimeException e){
+            return ResponseEntity.badRequest().body("error: " + e.getMessage());
+        }
+    }
+    
     
 
 }

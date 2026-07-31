@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 //import pages...
-import { MenuPrincipal } from './pages/menu-principal/menu-principal';
+import { MenuPrincipal } from './pages/Menus/menu-principal/menu-principal';
 
 //User pages / paginas del Usuario 
 import { RegistroUsuario } from './pages/Usuarios/registro/registro-usuario';

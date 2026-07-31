@@ -1,0 +1,38 @@
+<div>
+    <app-navbar></app-navbar>
+  <div class="app-container">
+    <div class="position-relative">
+      
+      <app-side-bar
+        [isSidebarCollapsed]="isSidebarCollapsed"
+        (sidebarToggle)="onSidebarToggle()"
+      >
+      </app-side-bar>
+      <button
+        class="sidebar-toggle-btn"
+        [ngClass]="{ 'sidebar-collapsed': isSidebarCollapsed }"
+        (click)="onSidebarToggle()"
+      >
+        <i
+          [class]="
+            isSidebarCollapsed ? 'fas fa-arrow-right' : 'fas fa-arrow-left'
+          "
+        ></i>
+      </button>
+
+  </div>
+</div>
+
+  <main class="content" [ngClass]="{ 'content-expanded': isSidebarCollapsed }">
+    <div>
+      <div class="tarjeta-enlaces">
+        <h2>Mis Enlaces</h2>
+        <div class="grupo-botones">
+          <button>  <a href="https://www.google.com" target="_blank" class="boton-enlace">Clases Recientes</a>  </button>
+          <button> <a href="https://www.wikipedia.org" target="_blank" class="boton-enlace">Actividades Pendientes</a> </button>
+          <button> <a href="#" class="boton-enlace">Calendario de Actividades</a> </button>  
+        </div>
+      </div>
+    </div>
+  </main>
+

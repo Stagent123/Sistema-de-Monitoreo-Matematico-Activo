@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { email } from '@angular/forms/signals';
 import { MateriaService } from '../../../services/materia.service';
-import { NgIf } from '../../../../../node_modules/@angular/common/types/_common_module-chunk';
+import { NgIf } from '@angular/common';
 import { RouterLink } from "@angular/router";
 
 @Component({

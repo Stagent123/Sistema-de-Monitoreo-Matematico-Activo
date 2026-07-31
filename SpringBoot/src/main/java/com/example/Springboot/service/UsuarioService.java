@@ -12,6 +12,10 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuariorepository;
 
+    public Usuario BuscarPorID(Long number){
+        return usuariorepository.findById(number)
+        .orElseThrow(() -> new RuntimeException("No se encontro ningun Usuario con el ID: " + number));
+    }
     public List<Usuario>  BuscarTodos(){
         List <Usuario> usuarioList = usuariorepository.findAll();
         return usuarioList;

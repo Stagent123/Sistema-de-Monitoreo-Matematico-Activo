@@ -32,6 +32,10 @@ export class UsuarioService {
         return this.http.get<any>(`${this.API_URL}/buscar?email=${email}`);
     }
 
+    buscaPorID(id: number): Observable<any> {
+        return this.http.get<any>(`${this.API_URL}/buscarID?id=${id}`);
+    }
+
     desencriptarToken(): string | null {
         const token = localStorage.getItem('token');
         if(!token) return null;
