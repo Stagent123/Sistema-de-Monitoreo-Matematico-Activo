@@ -4,29 +4,35 @@
   overflow: hidden;
 }
 
+.tarjetas{
+  margin-bottom: 30px;
+}
+
 .content {
-  flex-grow: 1;
-  margin-left: 250px;
+  width: 80%;
+  margin-left: 20%;
   transition: all 0.3s ease-in-out;
-  background-color: white;
-  overflow-y: auto;
+  background-color: #5c74bc;
+  align-content: center;
+  text-align: center;
+}
 
-  &-inner {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+.content-inner {
+  padding: 2rem;
+  margin: 0 auto;
+}
 
-  &-expanded {
-    margin-left: 50px;
-  }
+/* Cuando Angular le agrega la clase content-expanded mediante ngClass */
+.content.content-expanded {
+  width: 97%;
+  margin-left: 3%;
 }
 
 .sidebar-toggle-btn {
   position: absolute;
   top: 1rem;
-  left: 200px; 
-  background-color: white;
+  left: 302px; 
+  background-color: rgba(75, 26, 144, 0.773);
   border: none;
   padding: 0.5rem;
   border-top-right-radius: 0.5rem;
@@ -37,11 +43,11 @@
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: lightblue;
+    background-color: rgb(48, 170, 119);
   }
 
   &.sidebar-collapsed {
-    left: 15px; 
+    left: 0px; 
   }
 }
 

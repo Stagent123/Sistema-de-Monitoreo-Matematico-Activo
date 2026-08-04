@@ -1,5 +1,5 @@
 <div>
-    <app-navbar></app-navbar>
+    <app-navbar [isSidebarCollapsed]="isSidebarCollapsed"></app-navbar>
   <div class="app-container">
     <div class="position-relative">
       
@@ -19,20 +19,30 @@
           "
         ></i>
       </button>
-
   </div>
-</div>
 
-  <main class="content" [ngClass]="{ 'content-expanded': isSidebarCollapsed }">
-    <div>
-      <div class="tarjeta-enlaces">
-        <h2>Mis Enlaces</h2>
-        <div class="grupo-botones">
-          <button>  <a href="https://www.google.com" target="_blank" class="boton-enlace">Clases Recientes</a>  </button>
-          <button> <a href="https://www.wikipedia.org" target="_blank" class="boton-enlace">Actividades Pendientes</a> </button>
+  
+  <div class="content" [ngClass]="{'content-expanded': isSidebarCollapsed} ">
+    <h2>Mis Enlaces</h2>
+    <div class="tarjeta-enlaces">
+      
+      <div class="grupo-botones">
+        <div class="tarjetas">
+          <button>  <a href="https://www.google.com" target="_blank" class="boton-enlace">Clases Recientes</a>  </button>  
+        </div>
+          
+        <div class="tarjetas">
+          <button> <a href="https://www.wikipedia.org" target="_blank" class="boton-enlace">Actividades Pendientes</a> </button>  
+        </div>
+          
+        <div class="tarjetas">
           <button> <a href="#" class="boton-enlace">Calendario de Actividades</a> </button>  
         </div>
+            
       </div>
-    </div>
-  </main>
+   </div>  
+  </div>
+
+
+</div>
 
