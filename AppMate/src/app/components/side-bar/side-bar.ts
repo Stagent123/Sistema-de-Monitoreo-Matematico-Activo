@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 interface MenuItem {
@@ -12,6 +12,7 @@ interface MenuItem {
   selector: 'app-side-bar',
   imports: [NgClass],
   templateUrl: './side-bar.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './side-bar.css',
 })
 export class SideBar {
@@ -26,7 +27,7 @@ export class SideBar {
       children: [
         { icon: 'fas fa-chart-pie', label: 'Analytics' },
         { icon: 'fas fa-tasks', label: 'Projects' },
-      ]
+      ],
     },
     {
       icon: 'fas fa-cog',
@@ -35,12 +36,12 @@ export class SideBar {
       children: [
         { icon: 'fas fa-user', label: 'Profile' },
         { icon: 'fas fa-lock', label: 'Security' },
-      ]
+      ],
     },
     {
       icon: 'fas fa-envelope',
-      label: 'Messages'
-    }
+      label: 'Messages',
+    },
   ];
 
   toggleSidebar() {

@@ -2,12 +2,18 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
+import {
+  provideClientHydration,
+  withEventReplay,
+  withNoIncrementalHydration,
+} from '@angular/platform-browser';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(), provideHttpClient(),
-    provideRouter(routes), provideClientHydration(withEventReplay())
-  ]
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient(withXhr()),
+    provideRouter(routes),
+    provideClientHydration(withEventReplay(), withNoIncrementalHydration()),
+  ],
 };

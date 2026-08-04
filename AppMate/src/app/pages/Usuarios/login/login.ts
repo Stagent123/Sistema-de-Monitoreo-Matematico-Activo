@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { UsuarioService } from '../../../services/usuario.service';
 import { FormsModule } from '@angular/forms';
 
@@ -7,13 +7,13 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './login.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './login.css',
 })
 export class Login {
-
   datosFormulario = {
     email: '',
-    pass: ''
+    pass: '',
   };
 
   constructor(private usuarioService: UsuarioService) {}
@@ -21,16 +21,14 @@ export class Login {
   onLogin() {
     this.usuarioService.login(this.datosFormulario).subscribe({
       next: (respuesta) => {
-        console.log('Login exitoso!',respuesta);
-        localStorage.setItem('token',respuesta.token);
+        console.log('Login exitoso!', respuesta);
+        localStorage.setItem('token', respuesta.token);
         alert('Bienvenido ' + respuesta.nombre);
       },
       error: (err) => {
-        console.error ('Error en el login', err);
-        alert('Credenciales incorrectas: ' + err.error)
-      }
-    })
+        console.error('Error en el login', err);
+        alert('Credenciales incorrectas: ' + err.error);
+      },
+    });
   }
-
-
 }
