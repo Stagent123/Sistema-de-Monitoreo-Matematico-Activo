@@ -1,0 +1,19 @@
+<div class="sidebar">
+    <div class="sidebar-header">
+        <a href="" class="sidebar_logo">
+        </a>
+    </div>
+
+    <div class="sidebar-menu">
+        <ul>
+            @for (tool of herramientas(); track tool.nombre) {
+                <li class="sidebar-menu-item">
+                    <button (click)="ActivarHerramienta(tool.nombre)" class="tool">
+                        <img src="#" >
+                    </button>
+                </li>
+            }
+        </ul>
+
+    </div>
+</div>

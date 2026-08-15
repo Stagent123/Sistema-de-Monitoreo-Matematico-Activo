@@ -6,6 +6,7 @@ import { MenuPrincipal } from './pages/Menus/menu-principal/menu-principal';
 import { RegistroUsuario } from './pages/Usuarios/registro/registro-usuario';
 import { ListadoUsuario } from './pages/Usuarios/listado/listado-usuario';
 import { Login } from './pages/Usuarios/login/login';
+import { PizarraAlumno } from './pages/Pizarras/pizarra-alumno/pizarra-alumno';
 
 
 export const routes: Routes = [
@@ -18,6 +19,7 @@ export const routes: Routes = [
     { path: 'usuario/registro/:Id', component: RegistroUsuario },
     { path: 'usuario/registro' , component: RegistroUsuario },
     { path: 'usuario/listado', component: ListadoUsuario },
+    { path: 'Pizarra', component: PizarraAlumno }
 
     //
 
