@@ -1,0 +1,40 @@
+
+    <h3>Ecuación recibida:</h3>
+  <div id="resultadoFinal" style="font-size: 20px; min-height: 40px;"><p> {{ResultadoFinal }}</p></div>
+
+    <dialog #dialogElement id="Editor" (close)="setEstadoModal(false)">        
+        <div class="Herramientas">
+            <button (click)="addEcuacion('\\+')" >
+                +
+            </button>
+            <button (click)="addEcuacion('\\-')" >
+                -
+            </button>
+            <button (click)="addEcuacion('\\x')" >
+                x
+            </button>
+            <button (click)="addEcuacion('\\frac{a}{b}')" >
+                /
+            </button>
+            <button (click)="addEcuacion('\\sqrt{}')" >
+                √
+            </button>
+            <button (click)="addEcuacion('\\^{2}')" >
+                x²
+            </button>
+            <button (click)="addEcuacion('\\=')" >
+                =
+            </button>
+            </div>
+
+            <!-- Entrada de texto LaTeX -->
+            <textarea id="areaDeTexto" [(ngModel)]="ecuacionLatex" placeholder="Escribe o usa la barra de herramientas..."></textarea>
+
+            <!-- Previsualización dinámica -->
+            <h4>Vista Previa:</h4>
+            <div id="preview"></div>
+
+            <button id="btnInsertar" (click)="insertarYCerrar()">Insertar en página principal</button>
+            <button id="btnCancelar">Cancelar</button>
+        
+    </dialog>

@@ -1,7 +1,10 @@
 <div class="listado-container">
-    <p *ngif="mensajeError" style="color: red;"> {{mensajeError}} </p>
+     @if (mensajeError){
+        <p style="color: red;"> {{mensajeError}} </p>
+     }
 
-    <table border="1" *ngIf="listamaterias.length > 0">
+    @if (listamaterias.length > 0){
+        <table border="1" *ngIf="listamaterias.length > 0">
         <thead>
             <tr>
                 <th> ID Materia  </th>
@@ -23,6 +26,10 @@
             }
         </tbody>
     </table>
+    }
+    
 
-    <p *ngIf="listamaterias.length === 0 &&  !mensajeError"> No hay Materias registradas</p>
+    @if (listamaterias.length === 0 && !mensajeError){
+        <p> No hay Materias registradas</p>
+    }
 </div>

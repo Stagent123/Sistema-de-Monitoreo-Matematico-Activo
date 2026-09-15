@@ -1,3 +1,6 @@
-<canvas id='C'>
+<app-barra-herramientas (abrirEditorEvent)="editormodal.setEstadoModal(true)" (herramientaSeleccionada)="onHerramientaCambiada($event)"></app-barra-herramientas>
+<p> Herramienta Activa :  {{ this.herramienta }}</p>
+<canvas id='canvas'>
     
 </canvas>
+<app-editor-ecuaciones #editormodal></app-editor-ecuaciones>
