@@ -9,7 +9,7 @@
         <ul>
             @for (tool of herramientas(); track tool.nombre) {
                 <li class="sidebar-menu-item">
-                    <button (click)="ActivarHerramienta(tool.nombre)"  class="tool">
+                    <button (click)="ActivarHerramienta(tool.nombre)">
                         <img src="#" >{{ tool.nombre}}
                     </button>
                 </li>

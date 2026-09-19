@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BarraPropiedades } from './barra-propiedades';
+import { Rectangulo } from './rectangulo';
 
-describe('BarraPropiedades', () => {
-  let component: BarraPropiedades;
-  let fixture: ComponentFixture<BarraPropiedades>;
+describe('Rectangulo', () => {
+  let component: Rectangulo;
+  let fixture: ComponentFixture<Rectangulo>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BarraPropiedades],
+      imports: [Rectangulo],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BarraPropiedades);
+    fixture = TestBed.createComponent(Rectangulo);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

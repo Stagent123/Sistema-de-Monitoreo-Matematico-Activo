@@ -21,7 +21,6 @@ export class PizarraAlumno implements AfterViewInit {
   public herramienta = "abc"
   private platformId = inject(PLATFORM_ID)
 
-
   public abrirEditorModal(): void {
     if (this.editormodal) {
       this.editormodal.setEstadoModal(true);
@@ -48,6 +47,17 @@ export class PizarraAlumno implements AfterViewInit {
           }
         }
       });
+      this.canvas.on('mouse:down', (e) =>{
+        if (e.target){
+
+           const tipo = (e.target as any).tipo;
+          /// Falta crear las propiedades especiales del objeto id y tipo talvez otro mas aparte de esos
+          switch(tipo){
+            case "Cuadrados":
+              return
+        }
+        }
+      })
     }
   }
 
@@ -64,7 +74,10 @@ export class PizarraAlumno implements AfterViewInit {
     } else {
       this.canvas.isDrawingMode = false;
     }
+
+    
   }
+
    CuandoClickee(x:number ,y:number){
     switch(this.herramienta){
       case "Select":
@@ -75,7 +88,9 @@ export class PizarraAlumno implements AfterViewInit {
           top: y-25,
           height: 50,
           width: 50,
-          fill: 'blue'
+          fill: 'blue',
+          angle: 0,
+          strokeWidth: 1
         })
         this.canvas.add(Cuadrados)
         this.canvas.requestRenderAll();
@@ -112,4 +127,8 @@ export class PizarraAlumno implements AfterViewInit {
         return
     }
   }
+
+
+
+
 }

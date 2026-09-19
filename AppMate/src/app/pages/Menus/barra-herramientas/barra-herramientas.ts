@@ -1,7 +1,4 @@
 import { Component, signal,Output,EventEmitter } from '@angular/core';
-
-
-
 export interface Herramienta {
   id: number;
   nombre: string;
