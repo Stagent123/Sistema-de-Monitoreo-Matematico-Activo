@@ -14,6 +14,7 @@ export interface Herramienta {
 export class BarraHerramientas {
   public herramienta_activa = 'none'
   @Output() abrirEditorEvent = new EventEmitter<boolean>();
+  @Output() herramientaSeleccionada = new EventEmitter<string>();
   constructor() {
     this.herramienta_activa = 'Select';
   }
@@ -37,7 +38,7 @@ export class BarraHerramientas {
     this.herramientaSeleccionada.emit(this.herramienta_activa)
   }
 
-  @Output() herramientaSeleccionada = new EventEmitter<string>();
+  
 
  
 }

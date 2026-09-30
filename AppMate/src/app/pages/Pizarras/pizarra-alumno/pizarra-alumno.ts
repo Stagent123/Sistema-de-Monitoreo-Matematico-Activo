@@ -4,11 +4,12 @@ import { Canvas, Rect, Circle, PencilBrush, FabricText, Textbox } from 'fabric';
 import { BarraHerramientas } from "../../Menus/barra-herramientas/barra-herramientas";
 import { isPlatformBrowser } from '@angular/common';
 import { EditorEcuaciones } from '../editor-ecuaciones/editor-ecuaciones';
+import { Rectangulo } from '../../Menus/barra-propiedades/rectangulo/rectangulo';
 
 @Component({
   selector: 'app-pizarra-alumno',
   standalone: true,
-  imports: [BarraHerramientas,EditorEcuaciones],
+  imports: [BarraHerramientas, EditorEcuaciones, Rectangulo],
   templateUrl: './pizarra-alumno.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './pizarra-alumno.css',
@@ -31,6 +32,15 @@ export class PizarraAlumno implements AfterViewInit {
     console.log('Insertar en el lienzo:', ecuacionLatex);
     // Aquí agregas la lógica para pintar el LaTeX en tu pizarra
   }
+  public Cuadrados = new Rect ({
+    left: 0,
+    top: 0,
+    height: 50,
+    width: 50,
+    fill: 'blue',
+    angle: 0,
+    strokeWidth: 1
+  })
 
   ngAfterViewInit(): void {
       if(isPlatformBrowser(this.platformId)){
@@ -61,6 +71,24 @@ export class PizarraAlumno implements AfterViewInit {
     }
   }
 
+  PropiedadEditada(objeto: any){
+    if (objeto.tipo === 'Cuadrado'){
+      this.Cuadrados.height = objeto.alto
+      this.Cuadrados.width = objeto.ancho
+      this.Cuadrados.fill = objeto.color
+      this.Cuadrados.angle = objeto.angulo
+      this.Cuadrados.strokeWidth = objeto.grosor
+    }
+    if (objeto.tipo === 'Circulo'){
+      //cambiar por los valores de Circulo y crear pagina.
+      this.Cuadrados.height = objeto.alto
+      this.Cuadrados.width = objeto.ancho
+      this.Cuadrados.fill = objeto.color
+      this.Cuadrados.angle = objeto.angulo
+      this.Cuadrados.strokeWidth = objeto.grosor
+    }
+  }
+
   onHerramientaCambiada(X: string){
     this.herramienta = X
     if (!this.canvas) return;
@@ -83,16 +111,9 @@ export class PizarraAlumno implements AfterViewInit {
       case "Select":
         return
       case "Cuadrados":
-        const Cuadrados = new Rect ({
-          left: x-25,
-          top: y-25,
-          height: 50,
-          width: 50,
-          fill: 'blue',
-          angle: 0,
-          strokeWidth: 1
-        })
-        this.canvas.add(Cuadrados)
+        this.Cuadrados.left = x-25
+        this.Cuadrados.top = y-25
+        this.canvas.add(this.Cuadrados)
         this.canvas.requestRenderAll();
         this.onHerramientaCambiada("Select")
         return 
