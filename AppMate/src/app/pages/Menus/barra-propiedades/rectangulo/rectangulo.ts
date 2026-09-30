@@ -27,7 +27,6 @@ export class Rectangulo {
   valores = output<propiedadesRectangulo>();
 
   propiedades = signal<prop[]>([
-    {nombre: 'tipo', valor: 'Cuadrado'}
     {nombre: 'alto', valor: 50},
     {nombre: 'ancho', valor: 50},
     {nombre: 'grosor', valor: 1},
@@ -47,10 +46,12 @@ export class Rectangulo {
   actualizarCampo(campo: keyof propiedadesRectangulo, nuevovalor: any): void {
     const valorfinal = campo ==='color' ? nuevovalor : Number(nuevovalor);
     (this.val as any )[campo] = valorfinal;
+    this.enviardatos()
   } 
 
   enviardatos(): void{
     this.valores.emit(this.val);
+    console.log("dato enviado: ", this.val)
   }
 
 }

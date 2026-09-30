@@ -2,7 +2,7 @@
     <ul>
         @for (prop of propiedades(); track prop.nombre) {
             <li class="prop-bar-item">
-                <input (change)="actualizarCampo(prop.nombre, $any($event.target).value)" [value]="prop.valor">
+                <input  (change)="actualizarCampo(prop.nombre, $any($event.target).value)" [value]="prop.valor">
             </li>
         }
         <li class="prop-bar-item">

@@ -72,12 +72,16 @@ export class PizarraAlumno implements AfterViewInit {
   }
 
   PropiedadEditada(objeto: any){
+    console.log("el objeto es : ", objeto )
+    
     if (objeto.tipo === 'Cuadrado'){
-      this.Cuadrados.height = objeto.alto
-      this.Cuadrados.width = objeto.ancho
-      this.Cuadrados.fill = objeto.color
-      this.Cuadrados.angle = objeto.angulo
-      this.Cuadrados.strokeWidth = objeto.grosor
+      this.Cuadrados.set({
+        height: objeto.alto,
+        width: objeto.ancho,
+        fill: objeto.color,
+        angle: objeto.angulo,
+        strokeWidth: objeto.grosor
+      });
     }
     if (objeto.tipo === 'Circulo'){
       //cambiar por los valores de Circulo y crear pagina.
