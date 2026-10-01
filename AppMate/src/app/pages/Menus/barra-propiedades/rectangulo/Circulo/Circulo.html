@@ -1,0 +1,18 @@
+<div>
+    <ul>
+        @for (prop of propiedades(); track prop.nombre){
+            <li class="prop-bar-item">
+                <input (change)="actualizarCampo(prop.nombre,$any($event.target).value)" [value]="prop.valor">
+            </li>
+        }
+        <li class="prop-bar-item">
+            <select #select (change)="actualizarCampo('color',select.value)">
+                <option value="White">  Blanco  </option>
+                <option value="Black">  Negro   </option>
+                <option value="Blue">   Azul    </option>
+                <option value="Red">    Rojo    </option>
+                <option value="Yellow"> Amarrillo   </option>
+            </select>
+        </li>
+    </ul>
+</div>

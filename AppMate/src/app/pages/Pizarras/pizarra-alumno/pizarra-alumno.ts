@@ -126,7 +126,8 @@ export class PizarraAlumno implements AfterViewInit {
           left: x-25,
           top: y-25,
           fill: 'red',
-          radius: 50
+          radius: 50,
+          strokeWidth: 1
         })
           this.canvas.add(circulo)
           this.canvas.requestRenderAll();
